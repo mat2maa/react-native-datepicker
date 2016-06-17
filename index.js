@@ -36,8 +36,8 @@ class DatePicker extends Component {
         this.setModalVisible = this.setModalVisible.bind(this);
     }
 
-    format = this.props.format;
     mode = this.props.mode || 'date';
+    format = this.props.format || FORMATS[this.mode];
     height = 259;
     // slide animation duration time, default to 300ms, IOS only
     duration = this.props.duration || 300;
@@ -61,11 +61,6 @@ class DatePicker extends Component {
             'Warning: Failed propType'
             // Other warnings you don't want like 'jsSchedulingOverhead',
         ];
-
-        // init format according to mode
-        if (!this.format) {
-            this.format = FORMATS[this.mode];
-        }
     }
 
     setModalVisible(visible) {
